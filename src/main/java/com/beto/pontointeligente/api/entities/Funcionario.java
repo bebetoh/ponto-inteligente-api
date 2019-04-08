@@ -107,6 +107,10 @@ public class Funcionario implements Serializable {
 		return Optional.ofNullable(valorHora);
 	}
 
+//	public Optional<BigDecimal> getValorHoraOpt() {
+//		return Optional.ofNullable(valorHora);
+//	}
+
 	public void setValorHora(BigDecimal valorHora) {
 		this.valorHora = valorHora;
 	}
@@ -117,9 +121,14 @@ public class Funcionario implements Serializable {
 	}
 	
 	@Transient
+	public Float getQtdHorasTrabalhoDiaOpt() {
+		return qtdHorasTrabalhoDia;
+	}
+	/*
 	public Optional<Float> getQtdHorasTrabalhoDiaOpt() {
 		return Optional.ofNullable(qtdHorasTrabalhoDia);
 	}
+	*/
 
 	public void setQtdHorasTrabalhoDia(Float qtdHorasTrabalhoDia) {
 		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
