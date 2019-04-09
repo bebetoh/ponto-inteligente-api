@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 import com.beto.pontointeligente.api.enums.TipoEnum;
 
 @Entity
-@Table(name = "lancamento")
+@Table(name = "tb_lancamento")
 public class Lancamento implements Serializable{
 
 	/**

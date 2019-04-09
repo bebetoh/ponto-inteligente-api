@@ -25,7 +25,7 @@ import javax.persistence.Transient;
 import com.beto.pontointeligente.api.enums.PerfilEnum;
 
 @Entity
-@Table(name = "funcionario")
+@Table(name = "tb_funcionario")
 public class Funcionario implements Serializable {
 
 	/**
