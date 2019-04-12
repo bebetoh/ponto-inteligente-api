@@ -52,7 +52,7 @@ public class Funcionario implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -107,10 +107,6 @@ public class Funcionario implements Serializable {
 		return Optional.ofNullable(valorHora);
 	}
 
-//	public Optional<BigDecimal> getValorHoraOpt() {
-//		return Optional.ofNullable(valorHora);
-//	}
-
 	public void setValorHora(BigDecimal valorHora) {
 		this.valorHora = valorHora;
 	}
@@ -121,19 +117,15 @@ public class Funcionario implements Serializable {
 	}
 	
 	@Transient
-	public Float getQtdHorasTrabalhoDiaOpt() {
-		return qtdHorasTrabalhoDia;
-	}
-	/*
 	public Optional<Float> getQtdHorasTrabalhoDiaOpt() {
 		return Optional.ofNullable(qtdHorasTrabalhoDia);
 	}
-	*/
 
 	public void setQtdHorasTrabalhoDia(Float qtdHorasTrabalhoDia) {
 		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
 	}
 
+	@Column(name = "qtd_horas_almoco", nullable = true)
 	public Float getQtdHorasAlmoco() {
 		return qtdHorasAlmoco;
 	}
@@ -191,14 +183,15 @@ public class Funcionario implements Serializable {
 	
 	@PrePersist
 	public void prePersist() {
-		this.dataAtualizacao = new Date();
+		Date atual = new Date();
+		this.dataAtualizacao = atual;
+		this.dataCriacao = atual;
+		
 	}
 	
 	@PreUpdate
 	public void preUpdate() {
-		Date atual = new Date();
-		this.dataAtualizacao = atual;
-		this.dataCriacao = atual;
+		this.dataAtualizacao = new Date();
 		
 	}
 

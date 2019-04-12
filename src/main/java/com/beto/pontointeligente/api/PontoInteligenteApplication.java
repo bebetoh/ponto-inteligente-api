@@ -17,8 +17,8 @@ public class PontoInteligenteApplication {
 	@Value("${paginacao.qtd_por_pagina}")
 	private int qtdPorPagina;
 
-	@Autowired
-	private EmpresaReporitory empresaReporitory;
+	//@Autowired
+	//private EmpresaReporitory empresaReporitory;
 	public static void main(String[] args) {
 		SpringApplication.run(PontoInteligenteApplication.class, args);
 	}
@@ -26,12 +26,20 @@ public class PontoInteligenteApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
+			
+			/*
 			System.out.println("### Quantidade de elementos por pagina = " + this.qtdPorPagina	);
 			String CNPJ = "1212312312312";
-			Empresa empresa = new Empresa();
-			empresa.setRazaoSocial("Empresa de exemplo");
-			empresa.setCnpj(CNPJ);
-			this.empresaReporitory.save(empresa);
+			Empresa empresa1 = new Empresa();
+			empresa1.setRazaoSocial("Empresa de exemplo 1");
+			empresa1.setCnpj(CNPJ);
+			this.empresaReporitory.save(empresa1);
+			
+			Empresa empresa2 = new Empresa();
+			empresa2.setRazaoSocial("Empresa de exemplo 2");
+			empresa2.setCnpj("876876876876");
+			this.empresaReporitory.save(empresa2);
+			*/
 		};
 	}
 

@@ -44,7 +44,7 @@ public class Lancamento implements Serializable{
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -63,7 +63,7 @@ public class Lancamento implements Serializable{
 		this.data = data;
 	}
 
-	@Column(name = "localizacao", nullable = false)
+	@Column(name = "localizacao", nullable = true)
 	public String getLocalizacao() {
 		return localizacao;
 	}
@@ -120,14 +120,14 @@ public class Lancamento implements Serializable{
 	
 	@PrePersist
 	public void prePersist() {
-		this.dataAtualizacao = new Date();
+		Date atual = new Date();
+		this.dataAtualizacao = atual;
+		this.dataCriacao = atual;
 	}
 	
 	@PreUpdate
 	public void preUpdate() {
-		Date atual = new Date();
-		this.dataAtualizacao = atual;
-		this.dataCriacao = atual;
+		this.dataAtualizacao = new Date();	
 		
 	}
 

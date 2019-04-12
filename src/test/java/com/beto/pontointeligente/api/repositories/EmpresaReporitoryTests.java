@@ -25,7 +25,7 @@ import com.beto.pontointeligente.api.entities.Empresa;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
-public class EmpresaReporitoryTest {
+public class EmpresaReporitoryTests {
 
 	@Autowired
 	private EmpresaReporitory empresaReporitory;
@@ -52,7 +52,7 @@ public class EmpresaReporitoryTest {
 	}
 
 	@Test
-	public final void test() {
+	public final void testBuscarEmpresaPorCnpj() {
 		Empresa empresa = this.empresaReporitory.findByCnpj(CNPJ); 
 		assertEquals(CNPJ, empresa.getCnpj());
 	}
