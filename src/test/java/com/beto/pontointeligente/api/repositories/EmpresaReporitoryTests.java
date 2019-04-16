@@ -28,7 +28,7 @@ import com.beto.pontointeligente.api.entities.Empresa;
 public class EmpresaReporitoryTests {
 
 	@Autowired
-	private EmpresaReporitory empresaReporitory;
+	private EmpresaRepository empresaReporitory;
 	
 	private static final String CNPJ = "12312312312312";
 	

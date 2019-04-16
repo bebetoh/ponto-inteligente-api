@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.beto.pontointeligente.api.entities.Empresa;
-import com.beto.pontointeligente.api.repositories.EmpresaReporitory;
+import com.beto.pontointeligente.api.repositories.EmpresaRepository;
 
 @SpringBootApplication
 public class PontoInteligenteApplication {
@@ -26,9 +26,8 @@ public class PontoInteligenteApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
-			
-			/*
 			System.out.println("### Quantidade de elementos por pagina = " + this.qtdPorPagina	);
+			/*
 			String CNPJ = "1212312312312";
 			Empresa empresa1 = new Empresa();
 			empresa1.setRazaoSocial("Empresa de exemplo 1");

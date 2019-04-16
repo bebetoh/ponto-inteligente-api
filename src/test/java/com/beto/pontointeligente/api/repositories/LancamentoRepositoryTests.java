@@ -37,7 +37,7 @@ public class LancamentoRepositoryTests {
 	private FuncionarioRepository funcionarioRepository;
 	
 	@Autowired
-	private EmpresaReporitory empresaRepository;
+	private EmpresaRepository empresaRepository;
 	
 	private Long funcionarioId;
 	
