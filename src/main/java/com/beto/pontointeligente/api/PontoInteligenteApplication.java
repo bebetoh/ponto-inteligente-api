@@ -1,14 +1,12 @@
 package com.beto.pontointeligente.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.beto.pontointeligente.api.entities.Empresa;
-import com.beto.pontointeligente.api.repositories.EmpresaRepository;
+
 
 @SpringBootApplication
 public class PontoInteligenteApplication {
