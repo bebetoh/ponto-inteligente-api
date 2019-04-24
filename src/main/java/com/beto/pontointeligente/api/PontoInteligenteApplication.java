@@ -14,6 +14,9 @@ public class PontoInteligenteApplication {
 	
 	@Value("${paginacao.qtd_por_pagina}")
 	private int qtdPorPagina;
+	
+	@Value("${property.name}")
+	private String nomeArquivo;
 
 	//@Autowired
 	//private EmpresaReporitory empresaReporitory;
@@ -24,7 +27,7 @@ public class PontoInteligenteApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
-			System.out.println("### Quantidade de elementos por pagina = " + this.qtdPorPagina	);
+			System.out.println("### Quantidade de elementos por pagina = " + this.qtdPorPagina + "Nome: "+ nomeArquivo	);
 			/*
 			String CNPJ = "1212312312312";
 			Empresa empresa1 = new Empresa();
