@@ -94,3 +94,22 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/java/work
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 31 more
+2019-04-24 23:14:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:617)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1571)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1547)
+	at org.h2.jdbc.JdbcConnection.createStatement(JdbcConnection.java:262)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCConnectionImpl.createStatement(JDBCConnectionImpl.java:240)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCConnectionImpl.createStatement(JDBCConnectionImpl.java:1)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCUtils.executeStatement(JDBCUtils.java:631)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.shutdown(GenericDataSource.java:238)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.disconnect(DataSourceDescriptor.java:932)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.disconnect(DataSourceDescriptor.java:904)
+	at org.jkiss.dbeaver.runtime.jobs.DisconnectJob.run(DisconnectJob.java:52)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:102)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
