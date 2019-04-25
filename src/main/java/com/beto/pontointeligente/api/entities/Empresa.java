@@ -16,7 +16,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "tb_empresa" )
 public class Empresa implements Serializable {
