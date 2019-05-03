@@ -64,5 +64,13 @@ public class LancamentoDto {
 		return "LancamentoDto [id=" + id + ", data=" + data + ", tipo=" + tipo + ", descricao=" + descricao
 				+ ", localizacao=" + localizacao + ", funcionarioId=" + funcionarioId + "]";
 	}
+
+	public String getLocalizacao() {
+		return localizacao;
+	}
+
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
+	}
 	
 }

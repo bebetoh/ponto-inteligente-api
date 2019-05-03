@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +39,7 @@ import com.beto.pontointeligente.api.services.FuncionarioService;
 import com.beto.pontointeligente.api.services.LancamentoService;
 
 @RestController
-@RequestMapping("/api/lacamentos")
+@RequestMapping("/api/lancamentos")
 @CrossOrigin(origins = "*")
 public class LancamentoController {
 	
@@ -119,11 +120,12 @@ public class LancamentoController {
 	 * @param lancamentoDto
 	 * @param result
 	 * @return
+	 * @throws ParseException 
 	 */
 	@PostMapping
 	public ResponseEntity<Response<LancamentoDto>> adicionar(
 			@Valid @RequestBody LancamentoDto lancamentoDto,
-			BindingResult result){
+			BindingResult result) throws ParseException{
 		log.info("Adicionando um lançamento: {}", lancamentoDto.toString());
 		Response<LancamentoDto> response = new Response<LancamentoDto>();
 		validarFuncionario(lancamentoDto, result);
@@ -149,12 +151,13 @@ public class LancamentoController {
 	 * @param lancamentoDto
 	 * @param result
 	 * @return
+	 * @throws ParseException 
 	 */
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Response<LancamentoDto>> atualizar(
 			@PathVariable("id") Long id, 
 			@Valid @RequestBody LancamentoDto lancamentoDto,
-			BindingResult result){
+			BindingResult result) throws ParseException{
 		log.info("Atualizando lançamento: {}", lancamentoDto.toString());
 		Response<LancamentoDto> response = new Response<LancamentoDto>();
 		validarFuncionario(lancamentoDto, result);
@@ -175,6 +178,26 @@ public class LancamentoController {
 		return ResponseEntity.ok(response);  
 		
 	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id){
+		log.info("Removendo lançamento: {}", id);
+		Response<String> response = new Response<String>();
+		
+		Optional<Lancamento> lancamento = this.lancamentoService.buscarPorId(id);
+		
+		if(!lancamento.isPresent()) {
+			log.info("Erro ao remover. Lançamento com ID: {} inválido.", id);
+			response.getErrors().add("Erro ao remover. Lançamento com ID:" + id + " inválido.");
+			return ResponseEntity.badRequest().body(response);
+		}
+		
+		this.lancamentoService.remover(id);
+		
+		//response.setData("O lançamento com ID " + id+ " foi removido.");
+		
+		return ResponseEntity.ok(response);
+	}
 
 	/**
 	 * Converte a entidade de lançamento para seu DTO
@@ -190,6 +213,7 @@ public class LancamentoController {
 		lancamentoDto.setData(this.dateFormat.format(lancamento.getData()));
 		lancamentoDto.setDescricao(lancamento.getDescricao());
 		lancamentoDto.setFuncionarioId(lancamento.getFuncionario().getId());
+		lancamentoDto.setLocalizacao(lancamento.getLocalizacao());
 		
 		lancamentoDto.setTipo(lancamento.getTipo().name());
 		
@@ -216,7 +240,7 @@ public class LancamentoController {
 		}
 	}
 	
-	private Lancamento converterDtoParaLancamento(LancamentoDto lancamentoDto, BindingResult result) {		
+	private Lancamento converterDtoParaLancamento(LancamentoDto lancamentoDto, BindingResult result) throws ParseException {		
 		
 		Lancamento lancamento = new Lancamento();
 		
@@ -231,7 +255,8 @@ public class LancamentoController {
 			lancamento.setFuncionario(new Funcionario());
 			lancamento.getFuncionario().setId(lancamentoDto.getFuncionarioId());
 		}
-		
+		lancamento.setLocalizacao(lancamentoDto.getLocalizacao());
+		lancamento.setData(dateFormat.parse(lancamentoDto.getData()));
 		lancamento.setDescricao(lancamentoDto.getDescricao());
 		lancamento.getFuncionario().setId(lancamentoDto.getFuncionarioId());
 		
