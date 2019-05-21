@@ -1,6 +1,7 @@
 package com.beto.pontointeligente.api.repositories;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,9 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.beto.api.security.enums.PerfilEnum;
 import com.beto.pontointeligente.api.entities.Empresa;
 import com.beto.pontointeligente.api.entities.Funcionario;
-import com.beto.pontointeligente.api.enums.PerfilEnum;
 import com.beto.pontointeligente.api.utils.PasswordUtils;
 
 @RunWith(SpringRunner.class)

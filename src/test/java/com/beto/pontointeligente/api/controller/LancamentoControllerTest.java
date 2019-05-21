@@ -18,6 +18,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -63,6 +64,7 @@ public class LancamentoControllerTest {
 	}
 
 	@Test
+	@WithMockUser
 	public final void testCadastrarLancamento() throws Exception {
 		Lancamento lancamento = obterDadosLancamento();
 		
@@ -83,6 +85,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testCadastrarLancamentoFuncionarioIdInvalido() throws Exception{
 		BDDMockito.given(this.funcionarioService.buscarPorId(Mockito.anyLong())).willReturn(Optional.empty());
 		
@@ -96,12 +99,23 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
-	public void testRemoverLnacamento() throws Exception {
+	@WithMockUser(username = "admin@email.com", roles = {"ADMIN"})
+	public void testRemoverLancamento() throws Exception {
 		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
 		
 		mvc.perform(MockMvcRequestBuilders.delete(URL_BASE + ID_LANCAMENTO)
 				.accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk());
+	}
+	
+	@Test
+	@WithMockUser
+	public void testRemoverLancamentoAcessoNegado() throws Exception {
+		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
+		
+		mvc.perform(MockMvcRequestBuilders.delete(URL_BASE + ID_LANCAMENTO)
+				.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isForbidden());
 	}
 	
 	private String obterJsonRequisicaoPost() throws JsonProcessingException {

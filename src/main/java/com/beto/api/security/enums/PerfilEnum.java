@@ -1,6 +1,8 @@
-package com.beto.pontointeligente.api.enums;
+package com.beto.api.security.enums;
 
 public enum PerfilEnum {
+
 	ROLE_ADMIN,
 	ROLE_USUARIO;
+	
 }
