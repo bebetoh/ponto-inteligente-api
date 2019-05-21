@@ -21,7 +21,7 @@ import com.beto.api.security.filters.JwtAuthorizationTokenFilter;
 
 
 //@Configuration
-//@EnableWebSecurity 
+//@EnableWebSecurity
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
