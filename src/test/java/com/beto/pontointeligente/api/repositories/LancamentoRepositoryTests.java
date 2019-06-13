@@ -18,11 +18,11 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.beto.api.security.enums.PerfilEnum;
 import com.beto.pontointeligente.api.entities.Empresa;
 import com.beto.pontointeligente.api.entities.Funcionario;
 import com.beto.pontointeligente.api.entities.Lancamento;
 import com.beto.pontointeligente.api.enums.TipoEnum;
+import com.beto.pontointeligente.api.security.enums.PerfilEnum;
 import com.beto.pontointeligente.api.utils.PasswordUtils;
 
 @RunWith(SpringRunner.class)

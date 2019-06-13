@@ -51,8 +51,8 @@ public class LancamentoControllerTest {
 	private FuncionarioService funcionarioService;
 	
 	private static final String URL_BASE = "/api/lancamentos/";
-	private static final Long ID_FUNCIONARIO = 1L;
-	private static final Long ID_LANCAMENTO = 1L;
+	private static final Long ID_FUNCIONARIO = 58L;
+	private static final Long ID_LANCAMENTO = 33L;
 	
 	private static final String TIPO = TipoEnum.INICIO_TRABALHO.name();
 	private static final Date DATA = new Date();
@@ -77,8 +77,8 @@ public class LancamentoControllerTest {
 				.accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$.data.id").value(ID_LANCAMENTO))
-		.andExpect(jsonPath("$.data.tipo").value(this.TIPO))
-		.andExpect(jsonPath("$.data.data").value(this.formatDate.format(DATA)))
+		.andExpect(jsonPath("$.data.tipo").value(LancamentoControllerTest.TIPO))
+		.andExpect(jsonPath("$.data.data").value(LancamentoControllerTest.formatDate.format(DATA)))
 		.andExpect(jsonPath("$.data.funcionarioId").value(ID_FUNCIONARIO))
 		.andExpect(jsonPath("$.errors").isEmpty());
 		

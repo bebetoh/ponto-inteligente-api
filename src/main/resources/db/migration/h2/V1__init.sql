@@ -12,8 +12,8 @@ CREATE TABLE public.tb_empresa (
 	CONSTRAINT tb_empresa_pkey PRIMARY KEY (id)
 );
 -- Permissions
-ALTER TABLE public.tb_empresa OWNER TO postgres;
-GRANT ALL ON TABLE public.tb_empresa TO postgres;
+--ALTER TABLE public.tb_empresa OWNER TO sa;
+--GRANT ALL ON TABLE public.tb_empresa TO sa;
    
 CREATE TABLE public.tb_funcionario (
 	id bigserial NOT NULL,
@@ -32,8 +32,8 @@ CREATE TABLE public.tb_funcionario (
 	CONSTRAINT tb_funcionario_tb_empresa_fk FOREIGN KEY (empresa_id) REFERENCES tb_empresa(id)
 );
 -- Permissions
-ALTER TABLE public.tb_funcionario OWNER TO postgres;
-GRANT ALL ON TABLE public.tb_funcionario TO postgres;
+--ALTER TABLE public.tb_funcionario OWNER TO sa;
+--GRANT ALL ON TABLE public.tb_funcionario TO sa;
     
 
 CREATE TABLE public.tb_lancamento (
@@ -49,5 +49,5 @@ CREATE TABLE public.tb_lancamento (
 	CONSTRAINT tb_lancamento_tb_funcionario_fk FOREIGN KEY (funcionario_id) REFERENCES tb_funcionario(id)
 );
 -- Permissions
-ALTER TABLE public.tb_lancamento OWNER TO postgres;
-GRANT ALL ON TABLE public.tb_lancamento TO postgres;
+--ALTER TABLE public.tb_lancamento OWNER TO sa;
+--GRANT ALL ON TABLE public.tb_lancamento TO sa;
