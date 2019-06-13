@@ -1,4 +1,4 @@
-package com.beto.pontointeligente.api.controller;
+package com.beto.pontointeligente.api.controllers;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import org.apache.commons.lang3.EnumUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -30,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beto.pontointeligente.api.dtos.FuncionarioDto;
 import com.beto.pontointeligente.api.dtos.LancamentoDto;
 import com.beto.pontointeligente.api.entities.Funcionario;
 import com.beto.pontointeligente.api.entities.Lancamento;

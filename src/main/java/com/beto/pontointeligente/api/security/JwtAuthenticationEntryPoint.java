@@ -1,8 +1,8 @@
-package com.beto.api.security;
+package com.beto.pontointeligente.api.security;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException; 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

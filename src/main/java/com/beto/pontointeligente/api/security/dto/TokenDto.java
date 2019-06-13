@@ -1,4 +1,4 @@
-package com.beto.api.security.dto;
+package com.beto.pontointeligente.api.security.dto;
 
 public class TokenDto {
 

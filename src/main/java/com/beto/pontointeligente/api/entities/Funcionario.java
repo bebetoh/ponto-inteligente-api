@@ -22,7 +22,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.beto.api.security.enums.PerfilEnum;
+import com.beto.pontointeligente.api.security.enums.PerfilEnum;
 
 @Entity
 @Table(name = "tb_funcionario")

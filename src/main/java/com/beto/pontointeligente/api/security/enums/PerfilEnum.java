@@ -1,4 +1,4 @@
-package com.beto.api.security.enums;
+package com.beto.pontointeligente.api.security.enums;
 
 public enum PerfilEnum {
 

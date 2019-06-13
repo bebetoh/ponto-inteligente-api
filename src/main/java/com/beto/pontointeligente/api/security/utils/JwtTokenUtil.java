@@ -1,5 +1,6 @@
-package com.beto.api.security.utils;
+package com.beto.pontointeligente.api.security.utils;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class JwtTokenUtil {
 			Claims claims = getClaimsFromToken(token);
 			username = claims.getSubject();
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			username = null;
 		}
 		return username;
@@ -59,7 +60,7 @@ public class JwtTokenUtil {
 			Claims claims = getClaimsFromToken(token);
 			expiration = claims.getExpiration();
 		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO: handle exceptio
 			expiration = null;
 		}
 		return expiration;
@@ -129,7 +130,9 @@ public class JwtTokenUtil {
 	 * @return Date
 	 */
 	private Date gerarDataDeExpiracao () {
-		return new Date(System.currentTimeMillis() + expiration + 1000); 
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, 7);
+		return cal.getTime(); 
 	}
 	
 	/**

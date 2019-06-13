@@ -1,4 +1,4 @@
-package com.beto.api.security.filters;
+package com.beto.pontointeligente.api.security.filters;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.beto.api.security.utils.JwtTokenUtil;
+import com.beto.pontointeligente.api.security.utils.JwtTokenUtil;
 
 
 public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {

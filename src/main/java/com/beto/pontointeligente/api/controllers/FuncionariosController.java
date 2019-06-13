@@ -1,4 +1,4 @@
-package com.beto.pontointeligente.api.controller;
+package com.beto.pontointeligente.api.controllers;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -25,7 +25,7 @@ import com.beto.pontointeligente.api.response.Response;
 import com.beto.pontointeligente.api.services.FuncionarioService;
 import com.beto.pontointeligente.api.utils.PasswordUtils;
 
-@RestController
+@RestController 
 @RequestMapping("/api/funcionarios")
 @CrossOrigin(origins = "*")
 public class FuncionariosController {

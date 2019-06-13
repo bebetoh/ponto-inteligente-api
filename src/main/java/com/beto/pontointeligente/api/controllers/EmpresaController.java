@@ -1,4 +1,4 @@
-package com.beto.pontointeligente.api.controller;
+package com.beto.pontointeligente.api.controllers;
 
 import java.util.Optional;
 

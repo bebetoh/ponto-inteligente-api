@@ -1,4 +1,4 @@
-package com.beto.api.security;
+package com.beto.pontointeligente.api.security;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.beto.api.security.enums.PerfilEnum;
 import com.beto.pontointeligente.api.entities.Funcionario;
+import com.beto.pontointeligente.api.security.enums.PerfilEnum;
 
 public class JwtUserFactory {
 

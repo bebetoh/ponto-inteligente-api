@@ -1,4 +1,4 @@
-package com.beto.api.security.controllers;
+package com.beto.pontointeligente.api.security.controllers;
 
 import java.util.Optional;
 
@@ -22,10 +22,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beto.api.security.dto.JwtAuthenticationDto;
-import com.beto.api.security.dto.TokenDto;
-import com.beto.api.security.utils.JwtTokenUtil;
 import com.beto.pontointeligente.api.response.Response;
+import com.beto.pontointeligente.api.security.dto.JwtAuthenticationDto;
+import com.beto.pontointeligente.api.security.dto.TokenDto;
+import com.beto.pontointeligente.api.security.utils.JwtTokenUtil;
 
 @RestController
 @RequestMapping("/auth")
@@ -64,13 +64,6 @@ public class AuthenticationController {
 			BindingResult result){
 		
 		Response<TokenDto> response = new Response<TokenDto>();
-		
-		if(result.hasErrors()) {
-			log.error("Erro validando o lançamento: {}.", result.getAllErrors());
-			
-			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
-			return ResponseEntity.badRequest().body(response);
-		}
 		
 		log.info("Gerando token para o email: {}.", authenticationDto.getEmail() );
 		Authentication authentication = authenticationManager.authenticate(

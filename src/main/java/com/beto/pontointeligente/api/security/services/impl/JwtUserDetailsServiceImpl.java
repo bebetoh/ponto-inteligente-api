@@ -1,4 +1,4 @@
-package com.beto.api.security.services.impl;
+package com.beto.pontointeligente.api.security.services.impl;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.beto.api.security.JwtUserFactory;
 import com.beto.pontointeligente.api.entities.Funcionario;
+import com.beto.pontointeligente.api.security.JwtUserFactory;
 import com.beto.pontointeligente.api.services.FuncionarioService;
 
 @Service

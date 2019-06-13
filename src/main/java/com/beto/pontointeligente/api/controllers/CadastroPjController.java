@@ -1,4 +1,4 @@
-package com.beto.pontointeligente.api.controller;
+package com.beto.pontointeligente.api.controllers;
 
 import javax.validation.Valid;
 
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beto.api.security.enums.PerfilEnum;
 import com.beto.pontointeligente.api.dtos.CadastroPJDto;
 import com.beto.pontointeligente.api.entities.Empresa;
 import com.beto.pontointeligente.api.entities.Funcionario;
 import com.beto.pontointeligente.api.response.Response;
+import com.beto.pontointeligente.api.security.enums.PerfilEnum;
 import com.beto.pontointeligente.api.services.EmpresaService;
 import com.beto.pontointeligente.api.services.FuncionarioService;
 import com.beto.pontointeligente.api.utils.PasswordUtils;

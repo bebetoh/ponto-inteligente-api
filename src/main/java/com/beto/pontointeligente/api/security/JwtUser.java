@@ -1,4 +1,4 @@
-package com.beto.api.security;
+package com.beto.pontointeligente.api.security;
 
 import java.util.Collection;
 
